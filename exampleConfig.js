@@ -118,9 +118,18 @@ Optional Variables:
   automaticConfigReload: whether to watch the config file and reload it when it
                          changes. The default is true. Set this to false to disable.
 */
+// {
+//   graphitePort: 2003
+// , graphiteHost: "graphite.example.com"
+// , port: 8125
+// , backends: [ "./backends/graphite" ]
+// }
+
 {
-  graphitePort: 2003
-, graphiteHost: "graphite.example.com"
-, port: 8125
-, backends: [ "./backends/graphite" ]
+  port: 8125,
+  mgmt_port: 8126,
+  debug: true,
+  dumpMessages: true,
+  repeater: [ { host: 'statsd-exporter-svc', port: 9125 } ],
+  backends: [ "./backends/repeater" ]
 }
